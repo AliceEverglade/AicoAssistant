@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "7NKKJTQSJFELevm+k5HD1zQfK2yXFu01JsvH7sSS5+ryDU1+4xv26skJeuGqm05KCvZrXbicjl3DXXct2iaN+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alice Everglade\\Documents\\GitHub\\AicoAssistant\\AicoAssistant\\AicoAssistant\\AicoAssistant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alice Everglade\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Alice Everglade\\.nuget\\packages\\spectre.console\\0.47.0\\spectre.console.0.47.0.nupkg.sha512",
+    "C:\\Users\\Alice Everglade\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"
+  ],
+  "logs": []
+}
