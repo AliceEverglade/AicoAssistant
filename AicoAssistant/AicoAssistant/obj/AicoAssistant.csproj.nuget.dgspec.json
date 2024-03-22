@@ -40,13 +40,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Newtonsoft.Json": {
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[13.0.3, )"
-            },
-            "Spectre.Console": {
-              "target": "Package",
-              "version": "[0.47.0, )"
+              "version": "[6.2.3, )"
             }
           },
           "imports": [
@@ -61,6 +57,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

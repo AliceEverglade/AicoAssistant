@@ -1,51 +1,35 @@
-﻿namespace AicoAssistant
+namespace AicoAssistant
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string key = null;
-            bool running = false;
-            OpenAiApiClient client = null;
+            var builder = WebApplication.CreateBuilder(args);
 
-            key = Constants.Key;
-            if (key == null)
+            // Add services to the container.
+
+            builder.Services.AddControllers();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
             {
-                Console.WriteLine("I do not have a key to connect to the mainframe. please type out your key and press enter.");
-                key = Console.ReadLine();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
+            app.UseHttpsRedirection();
 
-            while (client == null)
-            {
-                APIConnection connection = new APIConnection(key);
-                client = connection.Connect();
-                if (client != null)
-                {
-                    Console.WriteLine("connected to the mainframe :D ask ahead!");
-                    running = true;
-                }
-                if (client == null)
-                {
-                    Console.WriteLine("the connection failed. maybe the key was wrong? try again please.");
-                    key = Console.ReadLine();
-                }
-            }
+            app.UseAuthorization();
 
-            while (running)
-            {
-                string prompt = Console.ReadLine();
-                if (prompt != null)
-                {
-                    SendPrompt(prompt, client);
-                }
-            }
-        }
 
-        static void SendPrompt(string prompt, OpenAiApiClient client)
-        {
-            string generatedText = client.GenerateTextAsync(prompt).GetAwaiter().GetResult();
-            Console.WriteLine(generatedText);
+            app.MapControllers();
+
+            app.Run();
         }
     }
 }
